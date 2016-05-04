@@ -30,12 +30,10 @@ class FlightPlanner
       connect = false
       #find key which contains the destination
       @flights.each do |key, value|
-        if value.include?(destination)
-          if @flights[start].include?(key)
-            puts "You are going to have to take a flight from #{start} to #{key} then connect to #{destination}"
-            connect = true
-            break
-          end
+        if value.include?(destination) && @flights[start].include?(key)
+          puts "You are going to have to take a flight from #{start} to #{key} then connect to #{destination}"
+          connect = true
+          break
         end
       end
 
